@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const SongForm = (props) => (
   <form id="songForm" onSubmit={props.handleSubmit} data-songid={props.songId}>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Emotion from './components/Emotion';
 import SongForm from './components/SongForm';
 import Song from './components/Song';
 import {__loadSongs, __createSong, __destroySong, __updateSong, __voteOnSong} from './lib/songService';
@@ -11,6 +12,24 @@ class App extends Component {
     this.state = {
       songs : [],
     }
+
+    this.emotions = [
+       { "angry" : "opp" }, 
+       { "anxious" : "opp" }, 
+       { "bored" : "opp" }, 
+       { "empty" : "opp" },
+       { "guilty" : "opp" }, 
+       { "hopeless" : "opp" }, 
+       { "indecisive" : "opp" },
+       { "jealous" : "opp" }, 
+       { "lonely" : "opp" }, 
+       { "negative" : "opp" }, 
+       { "sad" : "opp" }, 
+       { "selfish" : "opp" },
+       { "stressed" : "opp" },
+       { "tired" : "opp" }, 
+       { "worthless" : "opp" }
+     ];
 
     //when you use arrow syntax for functions, es7 will autobind those functions to the component
       //so you don't need these lines here
@@ -141,6 +160,17 @@ class App extends Component {
             handleVote={this._handleVote} 
             />)}
         </ul>
+  <br /><br />
+        <form onSubmit={this._handleEmotion}>
+          <ul>
+            {this.emotions.map((emo, ind) => <Emotion 
+              key={ind} 
+              emotion={Object.keys(emo)[0]} 
+              />)}
+          </ul>
+          <input type="submit" />
+
+        </form>
 
         <br /><br />
       </div>

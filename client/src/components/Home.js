@@ -3,11 +3,12 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom'
-import SongView from './SongView'
+import EventView from './EventView'
 import Nav from './Nav'
 import App from '../App'
 import Name from './Name'
-import Movie from './Movie'
+
+
 
 
 const Home = (props) => (
@@ -15,9 +16,7 @@ const Home = (props) => (
 	<div>
 		<Nav />
 		<Route exact path="/" component={App} />
-		<Route path="/songs/:id" component={SongView} />
 		<Route path="/name" component={Name} />
-		<Route path="/movies/:movie" component={Movie} />
 
 	</div>
 </Router>
